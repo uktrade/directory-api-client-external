@@ -3,10 +3,10 @@ from unittest.mock import patch, MagicMock
 
 from requests import Response
 
-from directory_api_external.client import DirectoryAPIClient
+from directory_api_external.client import DirectoryAPIExternalClient
 
 
-class DummyDirectoryAPIClient(DirectoryAPIClient):
+class DummyDirectoryAPIExternalClient(DirectoryAPIExternalClient):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
