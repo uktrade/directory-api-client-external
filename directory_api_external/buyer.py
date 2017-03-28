@@ -4,7 +4,7 @@ from directory_api_external.base import BaseAPIClient
 class BuyerAPIClient(BaseAPIClient):
 
     endpoints = {
-        'supplier-company': '/api/external/company/supplier/{sso_id}/'
+        'supplier-company': 'company/supplier/{sso_id}/company/'
     }
 
     def retrieve_supplier_company(self, sso_id):
