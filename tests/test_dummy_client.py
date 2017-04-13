@@ -17,11 +17,9 @@ class DirectoryAPIExternalClientTest(TestCase):
     def test_buyer(self):
         assert isinstance(self.client.buyer, BuyerAPIClient)
         assert self.client.buyer.base_url == self.base_url
-        assert self.client.buyer.api_key == self.api_key
+        assert self.client.buyer.request_signer.signer.secret == self.api_key
 
     def test_buyer_send_mocked(self):
-        response = self.client.buyer.send(
-            api_key='1', method='get', url='http://1.com'
-        )
+        response = self.client.buyer.send(method='get', url='http://1.com')
 
         assert isinstance(response.json(), MagicMock)

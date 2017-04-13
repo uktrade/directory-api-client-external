@@ -14,4 +14,4 @@ class DirectoryAPIExternalClientTest(TestCase):
     def test_buyer(self):
         assert isinstance(self.client.buyer, BuyerAPIClient)
         assert self.client.buyer.base_url == self.base_url
-        assert self.client.buyer.api_key == self.api_key
+        assert self.client.buyer.request_signer.signer.secret == self.api_key
