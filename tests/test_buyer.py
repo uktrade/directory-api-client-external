@@ -5,6 +5,13 @@ from tests import stub_request
 
 
 class BuyerAPIClientTest(TestCase):
+    """
+    The tests dont' have any assert because the "magic" happens implicitly
+    at the stub_request decorator level.
+
+    The decorator results in an exception being thrown if the url
+    being requested is not as defined in the decorator
+    """
 
     def setUp(self):
         self.client = BuyerAPIClient(
