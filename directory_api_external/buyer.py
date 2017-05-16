@@ -5,7 +5,7 @@ class BuyerAPIClient(BaseAPIClient):
 
     endpoints = {
         'supplier-company': 'company/supplier/{sso_id}/company/',
-        'supplier': 'external/supplier/{sso_id}/'
+        'supplier': 'supplier/{sso_id}/'
     }
 
     def retrieve_supplier_company(self, sso_id):

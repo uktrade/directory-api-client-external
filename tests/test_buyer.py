@@ -22,6 +22,6 @@ class BuyerAPIClientTest(TestCase):
     def test_retrieve_supplier_company(self, stub):
         self.client.retrieve_supplier_company(1)
 
-    @stub_request('http://b.co/external/supplier/1/', 'get')
+    @stub_request('http://b.co/supplier/1/', 'get')
     def test_retrieve_supplier(self, stub):
         self.client.retrieve_supplier(1)
