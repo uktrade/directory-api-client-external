@@ -5,6 +5,10 @@ Export Directory external API client.
 
 [![CircleCI](https://circleci.com/gh/uktrade/directory-api-client-external/tree/master.svg?style=svg)](https://circleci.com/gh/uktrade/directory-api-client-external/tree/master)
 
+## Coverage
+
+[![codecov](https://codecov.io/gh/uktrade/directory-api-client-external/branch/master/graph/badge.svg)](https://codecov.io/gh/uktrade/directory-api-client-external)
+
 ## Requirements
 
 ## Installation
