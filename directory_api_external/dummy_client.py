@@ -10,6 +10,7 @@ class DummyDirectoryAPIExternalClient(DirectoryAPIExternalClient):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        patch.object(self.supplier, 'send', self.send).start()
         patch.object(self.buyer, 'send', self.send).start()
 
     @patch('requests.Session.send')
