@@ -18,10 +18,16 @@ class BuyerAPIClientTest(TestCase):
             base_url='http://b.co/', api_key='test'
         )
 
-    @stub_request('http://b.co/company/supplier/1/company/', 'get')
+    @stub_request('http://b.co/company/supplier/company/', 'get')
     def test_retrieve_supplier_company(self, stub):
         self.client.retrieve_supplier_company(1)
 
-    @stub_request('http://b.co/supplier/1/', 'get')
+        request = stub.request_history[0]
+        assert request.headers['Authorization'] == 'SSO_SESSION_ID 1'
+
+    @stub_request('http://b.co/supplier/', 'get')
     def test_retrieve_supplier(self, stub):
         self.client.retrieve_supplier(1)
+
+        request = stub.request_history[0]
+        assert request.headers['Authorization'] == 'SSO_SESSION_ID 1'
