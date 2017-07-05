@@ -18,7 +18,7 @@ class BuyerAPIClientTest(TestCase):
             base_url='http://b.co/', api_key='test'
         )
 
-    @stub_request('http://b.co/company/supplier/company/', 'get')
+    @stub_request('http://b.co/supplier/company/', 'get')
     def test_retrieve_supplier_company(self, stub):
         self.client.retrieve_supplier_company(1)
 
