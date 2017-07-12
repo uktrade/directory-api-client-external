@@ -21,3 +21,17 @@ class SupplierAPIClientTest(TestCase):
     @stub_request('http://b.co/supplier-sso/', 'get')
     def test_list_supplier_sso_ids(self, stub):
         self.client.list_supplier_sso_ids()
+
+    @stub_request('http://b.co/supplier/company/', 'get')
+    def test_retrieve_supplier_company(self, stub):
+        self.client.retrieve_supplier_company(1)
+
+        request = stub.request_history[0]
+        assert request.headers['Authorization'] == 'SSO_SESSION_ID 1'
+
+    @stub_request('http://b.co/supplier/', 'get')
+    def test_retrieve_supplier(self, stub):
+        self.client.retrieve_supplier(1)
+
+        request = stub.request_history[0]
+        assert request.headers['Authorization'] == 'Bearer 1'
