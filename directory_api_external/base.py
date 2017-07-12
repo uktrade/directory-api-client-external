@@ -20,23 +20,23 @@ class BaseAPIClient:
         self.base_url = base_url
         self.request_signer = RequestSigner(secret=api_key)
 
-    def put(self, url, data, sso_session_id=None):
+    def put(self, url, data, authenticator=None):
         return self.request(
             url=url,
             method="PUT",
             content_type="application/json",
             data=json.dumps(data),
-            sso_session_id=sso_session_id,
+            authenticator=authenticator,
         )
 
-    def patch(self, url, data, files=None, sso_session_id=None):
+    def patch(self, url, data, files=None, authenticator=None):
         if files:
             response = self.request(
                 url=url,
                 method="PATCH",
                 data=data,
                 files=files,
-                sso_session_id=sso_session_id
+                authenticator=authenticator
             )
         else:
             response = self.request(
@@ -44,26 +44,26 @@ class BaseAPIClient:
                 method="PATCH",
                 content_type="application/json",
                 data=json.dumps(data),
-                sso_session_id=sso_session_id,
+                authenticator=authenticator,
             )
         return response
 
-    def get(self, url, params=None, sso_session_id=None):
+    def get(self, url, params=None, authenticator=None):
         return self.request(
             url=url,
             method="GET",
             params=params,
-            sso_session_id=sso_session_id,
+            authenticator=authenticator,
         )
 
-    def post(self, url, data={}, files=None, sso_session_id=None):
+    def post(self, url, data={}, files=None, authenticator=None):
         if files:
             response = self.request(
                 url=url,
                 method="POST",
                 data=data,
                 files=files,
-                sso_session_id=sso_session_id,
+                authenticator=authenticator,
             )
         else:
             response = self.request(
@@ -71,20 +71,20 @@ class BaseAPIClient:
                 method="POST",
                 content_type="application/json",
                 data=json.dumps(data),
-                sso_session_id=sso_session_id,
+                authenticator=authenticator,
             )
         return response
 
-    def delete(self, url, data=None, sso_session_id=None):
+    def delete(self, url, data=None, authenticator=None):
         return self.request(
             url=url,
             method="DELETE",
-            sso_session_id=sso_session_id,
+            authenticator=authenticator,
         )
 
     def request(
         self, method, url, content_type=None, data=None, params=None,
-        files=None, sso_session_id=None,
+        files=None, authenticator=None
     ):
 
         logger.debug("API request {} {}".format(method, url))
@@ -92,14 +92,14 @@ class BaseAPIClient:
         headers = {
             "User-agent": "EXPORT-DIRECTORY-API-CLIENT/{}".format(
                 __version__
-            ),
+            )
         }
+        if authenticator:
+            headers.update(authenticator.get_auth_headers())
+
         if content_type:
             headers["Content-type"] = content_type
-        if sso_session_id:
-            headers['Authorization'] = (
-                'SSO_SESSION_ID {}'.format(sso_session_id)
-            )
+
         url = urlparse.urljoin(self.base_url, url)
 
         start_time = monotonic()
