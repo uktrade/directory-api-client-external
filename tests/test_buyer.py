@@ -30,4 +30,4 @@ class BuyerAPIClientTest(TestCase):
         self.client.retrieve_supplier(1)
 
         request = stub.request_history[0]
-        assert request.headers['Authorization'] == 'SSO_SESSION_ID 1'
+        assert request.headers['Authorization'] == 'Bearer 1'
