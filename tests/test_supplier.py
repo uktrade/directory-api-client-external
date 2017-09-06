@@ -30,8 +30,15 @@ class SupplierAPIClientTest(TestCase):
         assert request.headers['Authorization'] == 'SSO_SESSION_ID 1'
 
     @stub_request('http://b.co/supplier/', 'get')
-    def test_retrieve_supplier(self, stub):
-        self.client.retrieve_supplier(1)
+    def test_retrieve_supplier_bearer(self, stub):
+        self.client.retrieve_supplier(bearer_token=1)
 
         request = stub.request_history[0]
         assert request.headers['Authorization'] == 'Bearer 1'
+
+    @stub_request('http://b.co/supplier/', 'get')
+    def test_retrieve_supplier_sso_auth(self, stub):
+        self.client.retrieve_supplier(sso_session_id=123)
+
+        request = stub.request_history[0]
+        assert request.headers['Authorization'] == 'SSO_SESSION_ID 123'

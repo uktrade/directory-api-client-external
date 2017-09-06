@@ -5,6 +5,7 @@
 #    pip-compile --output-file requirements_test.txt requirements_test.ini
 #
 -e git+https://github.com/uktrade/directory-signature-auth.git@0.1.0#egg=sigauth
+codecov==2.0.9
 configparser==3.5.0       # via flake8
 coverage==4.4.1           # via pytest-cov
 django==1.9.13
