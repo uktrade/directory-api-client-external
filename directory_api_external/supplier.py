@@ -1,6 +1,6 @@
 from directory_api_external.base import BaseAPIClient
 from directory_api_external.authentication import (
-    BearerAuthenticator, SessionSSOAuthenticator
+    AuthenticatorNegotiator, SessionSSOAuthenticator
 )
 
 
@@ -21,7 +21,9 @@ class SupplierAPIClient(BaseAPIClient):
         authenticator = SessionSSOAuthenticator(sso_session_id)
         return self.get(url, authenticator=authenticator)
 
-    def retrieve_supplier(self, bearer_token):
+    def retrieve_supplier(self, bearer_token=None, sso_session_id=None):
         url = self.endpoints['supplier']
-        authenticator = BearerAuthenticator(bearer_token)
+        authenticator = AuthenticatorNegotiator(
+            bearer_token=bearer_token, sso_session_id=sso_session_id
+        )
         return self.get(url, authenticator=authenticator)

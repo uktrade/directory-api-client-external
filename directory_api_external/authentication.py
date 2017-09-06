@@ -21,3 +21,12 @@ class BearerAuthenticator(BaseAuthenticator):
 
 class SessionSSOAuthenticator(BaseAuthenticator):
     header_template = 'SSO_SESSION_ID {}'
+
+
+class AuthenticatorNegotiator:
+    def __new__(self, bearer_token, sso_session_id):
+        assert bearer_token or sso_session_id
+        if bearer_token:
+            return BearerAuthenticator(bearer_token)
+        elif sso_session_id:
+            return SessionSSOAuthenticator(sso_session_id)
