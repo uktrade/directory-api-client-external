@@ -14,6 +14,6 @@ class DirectoryAPIExternalClientTest(TestCase):
     def test_supplier(self):
         assert isinstance(self.client.supplier, SupplierAPIClient)
         assert self.client.supplier.base_url == self.base_url
-        assert self.client.supplier.request_signer.signer.secret == (
+        assert self.client.supplier.request_signer.secret == (
             self.api_key
         )
