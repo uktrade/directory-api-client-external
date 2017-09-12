@@ -18,7 +18,7 @@ class DirectoryAPIExternalClientTest(TestCase):
         supplier = self.client.supplier
         assert isinstance(supplier, SupplierAPIClient)
         assert supplier.base_url == self.base_url
-        assert supplier.request_signer.signer.secret == self.api_key
+        assert supplier.request_signer.secret == self.api_key
 
     def test_supplier_send_mocked(self):
         response = self.client.supplier.send(method='get', url='http://1.com')
