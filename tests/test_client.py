@@ -2,6 +2,7 @@ from unittest import TestCase
 
 from directory_api_external.supplier import SupplierAPIClient
 from directory_api_external.client import DirectoryAPIExternalClient
+from tests import stub_request
 
 
 class DirectoryAPIExternalClientTest(TestCase):
@@ -17,3 +18,7 @@ class DirectoryAPIExternalClientTest(TestCase):
         assert self.client.supplier.request_signer.secret == (
             self.api_key
         )
+
+    @stub_request('https://buyer.com/api/healthcheck/ping/', 'get')
+    def test_ping(self, stub):
+        self.client.ping()
