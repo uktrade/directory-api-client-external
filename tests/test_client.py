@@ -19,6 +19,6 @@ class DirectoryAPIExternalClientTest(TestCase):
             self.api_key
         )
 
-    @stub_request('https://buyer.com/api/healthcheck/ping/', 'get')
+    @stub_request('https://buyer.com/healthcheck/ping/', 'get')
     def test_ping(self, stub):
         self.client.ping()

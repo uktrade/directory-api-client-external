@@ -5,7 +5,7 @@ from directory_api_external.base import BaseAPIClient
 class DirectoryAPIExternalClient(BaseAPIClient):
 
     endpoints = {
-        'ping': 'api/healthcheck/ping/',
+        'ping': 'healthcheck/ping/',
     }
 
     def __init__(self, base_url=None, api_key=None):
