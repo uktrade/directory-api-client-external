@@ -31,5 +31,6 @@ sigauth==2.1.0            # via directory-client-core
 six==1.11.0               # via directory-client-core, mohawk, requests-mock, sigauth
 termcolor==1.1.0          # via pytest-sugar
 tqdm==4.19.6              # via directory-client-core, sigauth, twine
-twine==1.9.1              # via directory-client-core, sigauth
+twine==1.9.1
 urllib3==1.22             # via directory-client-core, requests, sigauth
+wheel==0.30.0
