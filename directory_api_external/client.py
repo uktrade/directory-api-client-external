@@ -1,5 +1,6 @@
+from directory_client_core.base import BaseAPIClient
+
 from directory_api_external.supplier import SupplierAPIClient
-from directory_api_external.base import BaseAPIClient
 
 
 class DirectoryAPIExternalClient(BaseAPIClient):
