@@ -55,5 +55,5 @@ Then run the following command:
 [codecov-image]: https://codecov.io/gh/uktrade/directory-api-client-external/branch/master/graph/badge.svg
 [codecov]: https://codecov.io/gh/uktrade/directory-api-client-external
 
-[pypi-image]: https://badge.fury.io/py/directory-api-client-external.svg
-[pypi]: https://badge.fury.io/py/directory-api-client-external
+[pypi-image]: https://badge.fury.io/py/directory-api-external.svg
+[pypi]: https://badge.fury.io/py/directory-api-external
