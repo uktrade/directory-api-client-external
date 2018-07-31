@@ -59,5 +59,5 @@ Then run the following command:
 [pypi-image]: https://badge.fury.io/py/directory-api-external.svg
 [pypi]: https://badge.fury.io/py/directory-api-external
 
-[snyk-image]: https://snyk.io/test/github/uktrade/directory-api-external/badge.svg
-[snyk]: https://snyk.io/test/github/uktrade/directory-api-external
+[snyk-image]: https://snyk.io/test/github/uktrade/directory-api-client-external/badge.svg
+[snyk]: https://snyk.io/test/github/uktrade/directory-api-client-external
