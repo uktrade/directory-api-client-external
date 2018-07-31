@@ -3,7 +3,7 @@
 [![code-climate-image]][code-climate]
 [![circle-ci-image]][circle-ci]
 [![codecov-image]][codecov]
-[![gemnasium-image]][gemnasium]
+[![pypi-image]][pypi]
 
 **Export Directory external API client.**
 
@@ -55,5 +55,5 @@ Then run the following command:
 [codecov-image]: https://codecov.io/gh/uktrade/directory-api-client-external/branch/master/graph/badge.svg
 [codecov]: https://codecov.io/gh/uktrade/directory-api-client-external
 
-[gemnasium-image]: https://gemnasium.com/badges/github.com/uktrade/directory-api-client-external.svg
-[gemnasium]: https://gemnasium.com/github.com/uktrade/directory-api-client-external
+[pypi-image]: https://badge.fury.io/py/directory-api-client-external.svg
+[pypi]: https://badge.fury.io/py/directory-api-client-external
