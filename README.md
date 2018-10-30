@@ -3,7 +3,7 @@
 [![code-climate-image]][code-climate]
 [![circle-ci-image]][circle-ci]
 [![codecov-image]][codecov]
-[![gemnasium-image]][gemnasium]
+[![pypi-image]][pypi]
 
 **Export Directory external API client.**
 
@@ -11,20 +11,25 @@
 
 ## Installation
 
-```shell
-pip install directory-api-client-external
+```sh
+    $ pip install directory-api-external
 ```
 
-## Usage
+The api client expects the following settings:
 
-```python
-from directory_api_external.client import DirectoryAPIClient
+| Setting                                       | Notes                                                       |
+| --------------------------------------------- | ----------------------------------------------------------- |
+| DIRECTORY_API_CLIENT_EXTERNAL_BASE_URL        |                                                             |
+| DIRECTORY_API_CLIENT_EXTERNAL_API_KEY         | Unique to client. Retrieved during the on-boarding process. |
+| DIRECTORY_API_CLIENT_EXTERNAL_SENDER_ID       | Unique to client. Retrieved during the on-boarding process. |
+| DIRECTORY_API_CLIENT_EXTERNAL_DEFAULT_TIMEOUT |                                                             |
 
-directory_client = DirectoryAPIClient(
-    base_url="https://find-a-buyer.export.great.gov.uk/api",
-    api_key=api_key
-)
+Once that is done the API client can be used:
+
+```py
+from directory_api_external.client import api_client
 ```
+
 
 ## Development
 
@@ -55,5 +60,5 @@ Then run the following command:
 [codecov-image]: https://codecov.io/gh/uktrade/directory-api-client-external/branch/master/graph/badge.svg
 [codecov]: https://codecov.io/gh/uktrade/directory-api-client-external
 
-[gemnasium-image]: https://gemnasium.com/badges/github.com/uktrade/directory-api-client-external.svg
-[gemnasium]: https://gemnasium.com/github.com/uktrade/directory-api-client-external
+[pypi-image]: https://badge.fury.io/py/directory-api-external.svg
+[pypi]: https://badge.fury.io/py/directory-api-external
