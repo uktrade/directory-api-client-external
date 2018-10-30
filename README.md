@@ -4,7 +4,6 @@
 [![circle-ci-image]][circle-ci]
 [![codecov-image]][codecov]
 [![pypi-image]][pypi]
-[![snyk-image]][snyk]
 
 **Export Directory external API client.**
 
@@ -12,20 +11,25 @@
 
 ## Installation
 
-```shell
-pip install directory-api-client-external
+```sh
+    $ pip install directory-api-external
 ```
 
-## Usage
+The api client expects the following settings:
 
-```python
-from directory_api_external.client import DirectoryAPIClient
+| Setting                                       | Notes                                                       |
+| --------------------------------------------- | ----------------------------------------------------------- |
+| DIRECTORY_API_CLIENT_EXTERNAL_BASE_URL        |                                                             |
+| DIRECTORY_API_CLIENT_EXTERNAL_API_KEY         | Unique to client. Retrieved during the on-boarding process. |
+| DIRECTORY_API_CLIENT_EXTERNAL_SENDER_ID       | Unique to client. Retrieved during the on-boarding process. |
+| DIRECTORY_API_CLIENT_EXTERNAL_DEFAULT_TIMEOUT |                                                             |
 
-directory_client = DirectoryAPIClient(
-    base_url="https://find-a-buyer.export.great.gov.uk/api",
-    api_key=api_key
-)
+Once that is done the API client can be used:
+
+```py
+from directory_api_external.client import api_client
 ```
+
 
 ## Development
 
@@ -59,5 +63,3 @@ Then run the following command:
 [pypi-image]: https://badge.fury.io/py/directory-api-external.svg
 [pypi]: https://badge.fury.io/py/directory-api-external
 
-[snyk-image]: https://snyk.io/test/github/uktrade/directory-api-client-external/badge.svg
-[snyk]: https://snyk.io/test/github/uktrade/directory-api-client-external

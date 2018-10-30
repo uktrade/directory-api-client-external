@@ -1,17 +1,19 @@
-from directory_client_core.base import BaseAPIClient
-
 from directory_client_core.authentication import (
     AuthenticatorNegotiator, SessionSSOAuthenticator
 )
+from directory_client_core.base import AbstractAPIClient
+
+from directory_api_external.version import __version__
 
 
-class SupplierAPIClient(BaseAPIClient):
+class SupplierAPIClient(AbstractAPIClient):
 
     endpoints = {
         'supplier-sso-ids': 'supplier-sso/',
         'supplier-company': 'supplier/company/',
         'supplier': 'supplier/'
     }
+    version = __version__
 
     def list_supplier_sso_ids(self):
         url = self.endpoints['supplier-sso-ids']

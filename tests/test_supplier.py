@@ -15,7 +15,10 @@ class SupplierAPIClientTest(TestCase):
 
     def setUp(self):
         self.client = SupplierAPIClient(
-            base_url='http://b.co/', api_key='test'
+            base_url='http://b.co/',
+            api_key='test',
+            sender_id='some-sender',
+            timeout=5,
         )
 
     @stub_request('http://b.co/supplier-sso/', 'get')
